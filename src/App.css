@@ -1,7 +1,6 @@
 #root {
-  width: 80%;
   margin: 0 auto;
-  /* padding: 2rem; */
+  width: 100%;
   text-align: center;
 }
 
@@ -39,4 +38,19 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.app-bar {
+  padding: 0 5%;
+}
+
+.receipe {
+  margin: 10px 20%;
+  padding: 15px;
+}
+
+@media (max-width: 450px) {
+  .receipe {
+    margin: 15px;
+  }
 }
