@@ -4,6 +4,9 @@ import App from './App.jsx'
 import Login from './components/Login.jsx'
 import Home from './components/Home.jsx'
 import './index.css'
+import StopWatch from './components/StopWatch.jsx'
+import Counter from './components/Counter.jsx'
+import Receipe from './components/Receipe/Receipe.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -12,12 +15,28 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
+    path: '/watch',
+    element: <StopWatch />
+  },
+  {
+    path: '/counter',
+    element: <Counter />
+  },
+  {
+    path: '/random',
+    element: <Receipe />
+  },
+  {
     path: '/',
     element: <App />,
     children: [
       {
         path: '',
         element: <Home />
+      },
+      {
+        path: '/receipe/:mealId',
+        element: <Receipe />
       }
     ]
   }

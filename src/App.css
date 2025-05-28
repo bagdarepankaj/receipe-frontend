@@ -46,7 +46,11 @@
 
 .receipe {
   margin: 10px 20%;
-  padding: 15px;
+  padding: 20px;  
+}
+.receipe-component {
+  margin: 10px 12%;
+  padding: 20px;
 }
 
 @media (max-width: 450px) {
