@@ -1,6 +1,6 @@
 import { fetchRandom, getMeal } from '../../Api/Api.js';
 import { useEffect, useState } from 'react';
-import { Paper } from '@mui/material'
+import { Paper, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2'
 import { useParams } from 'react-router-dom';
 // import axios from 'axios';
@@ -11,6 +11,7 @@ function Receipe() {
     useEffect(() => {
         (async () => {
             const data = mealId ? await getMeal(mealId) : await fetchRandom();
+            console.log(data.meals)
             setReceipes(data.meals)
         })();
     }, [])
@@ -19,7 +20,7 @@ function Receipe() {
         <>
         {receipes.map( meal => (
             <Paper elevation={6} key={meal.strMeal} className="receipe-component">
-                <b>{meal.strMeal}</b>
+                <Typography variant="h4" gutterBottom>{meal.strMeal}</Typography>
                 <Grid container >
                     <Grid size={{ md: 7, sm: 6 }}>
                         <img 

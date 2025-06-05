@@ -7,6 +7,7 @@ import './index.css'
 import StopWatch from './components/StopWatch.jsx'
 import Counter from './components/Counter.jsx'
 import Receipe from './components/Receipe/Receipe.jsx'
+import CreateRecipe from './components/Receipe/CreateRecipe.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/receipe/:mealId',
         element: <Receipe />
+      },
+      {
+        path: '/create-receipe',
+        element: <CreateRecipe />
       }
     ]
   }
