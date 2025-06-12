@@ -1,5 +1,4 @@
 import Category from './Category';
-import { itemData } from '../state/State.js'
 import { useEffect, useState } from 'react';
 import ReceipeList from './Receipe/ReceipeList.jsx';
 import Loader from './Loader.jsx';

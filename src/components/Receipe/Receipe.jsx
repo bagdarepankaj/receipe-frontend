@@ -1,59 +1,113 @@
 import { fetchRandom, getMeal } from '../../Api/Api.js';
 import { useEffect, useState } from 'react';
-import { Paper, Typography } from '@mui/material'
-import Grid from '@mui/material/Grid2'
+import { Paper, Typography, List, ListItem, ListItemText, Divider, Box } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { useParams } from 'react-router-dom';
 // import axios from 'axios';
-function Receipe() {
 
-    const [receipes, setReceipes] = useState([]);
+function Receipe() {
+    const [recipes, setRecipes] = useState([]);
     const { mealId } = useParams();
+
     useEffect(() => {
         (async () => {
             const data = mealId ? await getMeal(mealId) : await fetchRandom();
-            console.log(data.meals)
-            setReceipes(data.meals)
+            setRecipes(data.meals);
         })();
-    }, [])
+    }, [mealId]);
+
+    const getIngredients = (meal) => {
+        const ingredients = [];
+        for (let i = 1; i <= 20; i++) {
+            const ingredient = meal[`strIngredient${i}`];
+            const measure = meal[`strMeasure${i}`];
+            if (ingredient && ingredient.trim()) {
+                ingredients.push({ ingredient, measure });
+            }
+        }
+        return ingredients;
+    };
 
     return (
         <>
-        {receipes.map( meal => (
-            <Paper elevation={6} key={meal.strMeal} className="receipe-component">
-                <Typography variant="h4" gutterBottom>{meal.strMeal}</Typography>
-                <Grid container >
-                    <Grid size={{ md: 7, sm: 6 }}>
-                        <img 
-                            src={meal.strMealThumb}
-                            alt={meal.strMeal}
-                            loading="lazy"
-                            style={{ width: "100%", height: "auto"}}
+            {recipes.map(meal => (
+                <Paper 
+                    elevation={6} 
+                    key={meal.strMeal} 
+                    className="receipe-component"
+                    sx={{ p: 4 }}
+                >
+                    <Typography 
+                        variant="h4" 
+                        gutterBottom 
+                        sx={{ 
+                            mb: 4,
+                            textAlign: 'center'
+                        }}
+                    >
+                        {meal.strMeal}
+                    </Typography>
+
+                    <Grid container spacing={4}>
+                        <Grid size={{ xs: 12, md: 8 }}>
+                            <Box
+                                component="img"
+                                src={meal.strMealThumb}
+                                alt={meal.strMeal}
+                                sx={{
+                                    width: "100%",
+                                    height: "auto",
+                                    borderRadius: 2,
+                                    boxShadow: 3
+                                }}
                             />
+                        </Grid>
+                        <Grid size={{ xs: 12, md: 4 }}>
+                            <Typography variant="h5" sx={{ mb: 2, fontWeight: 'bold' }}>
+                                Ingredients
+                            </Typography>
+                            <List>
+                                {getIngredients(meal).map(({ ingredient, measure }, index) => (
+                                    <ListItem key={index} sx={{ py: 0.5 }}>
+                                        <ListItemText 
+                                            primary={`${ingredient}: ${measure}`}
+                                            sx={{
+                                                '& .MuiListItemText-primary': {
+                                                    fontSize: '1.1rem'
+                                                }
+                                            }}
+                                        />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Grid>
+                        <Grid size={{ xs: 12 }}>
+                            <Typography variant="h5" sx={{ m: 1, fontWeight: 'bold' }}>
+                                Instructions
+                            </Typography>
+                            <Divider sx={{ mb: 2 }} />
+                            {meal.strInstructions.split('\n').map((instruction, index) => (
+                                instruction.trim() && (
+                                    <Typography 
+                                        key={index} 
+                                        paragraph 
+                                        sx={{ 
+                                            m: 1,
+                                            lineHeight: 1.8,
+                                            fontSize: '1.1rem',
+                                            textAlign: 'left'
+                                        }}
+                                    >
+                                        {instruction}
+                                    </Typography>
+                                )
+                            ))}
+                        </Grid>
                     </Grid>
-                    <Grid size={{ md: 5, sm: 6 }}>
-                        <b>Ingredients</b>
-                        <p>{meal.strIngredient1} : {meal.strMeasure1}</p>
-                        <p>{meal.strIngredient2} : {meal.strMeasure2}</p>
-                        <p>{meal.strIngredient3} : {meal.strMeasure3}</p>
-                        <p>{meal.strIngredient4} : {meal.strMeasure4}</p>
-                        <p>{meal.strIngredient5} : {meal.strMeasure5}</p>
-                        <p>{meal.strIngredient6} : {meal.strMeasure6}</p>
-                        <p>{meal.strIngredient7} : {meal.strMeasure7}</p>
-                        <p>{meal.strIngredient8} : {meal.strMeasure8}</p>
-                        <p>{meal.strIngredient9} : {meal.strMeasure9}</p>
-                        <p>{meal.strIngredient10} : {meal.strMeasure10}</p>
-                        <p>{meal.strIngredient11} : {meal.strMeasure11}</p>
-                        <p>{meal.strIngredient12} : {meal.strMeasure12}</p>
-                    </Grid>
-                    <Grid>
-                        <b>Instructions</b>
-                        <p>{meal.strInstructions}</p>
-                    </Grid>
-                </Grid>
-            </Paper>
-        ))}
+                </Paper>
+            ))}
         </>
-    )
+    );
 }
 
 export default Receipe;

@@ -1,8 +1,6 @@
 import { Container, Typography, Paper } from "@mui/material";
 import { TextField, Button } from "@mui/material";
-import Grid from "@mui/material/Grid2";
 import AddIngredient from "./AddIngredient";
-import { Add } from "@mui/icons-material";
 
 function CreateRecipe() {
 

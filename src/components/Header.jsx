@@ -13,13 +13,14 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 // import AdbIcon from '@mui/icons-material/Adb';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-
+import { Link, useNavigate } from 'react-router-dom';
 const pages = ['Categories', 'Ingredients', 'Area'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Home', 'Favourites'];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -147,7 +148,11 @@ function Header() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                  <Link to={`/${setting}`}>
+                    <Typography sx={{ textAlign: 'center' }} >
+                      {setting}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
