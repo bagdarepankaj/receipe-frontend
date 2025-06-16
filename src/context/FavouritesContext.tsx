@@ -1,7 +1,6 @@
-import React, { createContext, useReducer, ReactNode, Dispatch } from "react";
-import { initialState, reducer } from "../state/Reducer";
+import React, { createContext, ReactNode, Dispatch } from "react";
+import MyReducer, { initialState } from "../state/Reducer";
 
-// Define a type for the context value
 interface FavouritesContextType {
     state: typeof initialState;
     dispatch: Dispatch<any>;
@@ -13,11 +12,10 @@ export const FavContext = createContext<FavouritesContextType>({
 });
 
 export function FavouritesProvider({ children }: { children: ReactNode }) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const {state, dispatch} = MyReducer();
     return (
         <FavContext.Provider value={{ state, dispatch }}>
             {children}
         </FavContext.Provider>
     );
 }
-

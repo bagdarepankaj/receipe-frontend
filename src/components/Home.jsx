@@ -22,11 +22,11 @@ export default function Home() {
             setLoading(false)
         })();
     }, [selectedCategory])
-  
+
     return (
         <>
             <Category handleCategory={handleCategory} selected={selectedCategory} />
-            { isLoading ? <Loader /> : <ReceipeList recipes={recipes} /> }            
+            { isLoading ? <Loader /> : <ReceipeList recipes={recipes} /> }
         </>
   );
 }

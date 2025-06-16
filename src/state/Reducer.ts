@@ -29,11 +29,59 @@ const favourites: Favourite[] = [
     }
 ];
 
-const initialState = {
+const categories: string[] = [
+    "Breakfast", 
+    "Vegetarian",
+    "Dessert", 
+    "Chicken", 
+    "Goat", 
+    "Miscellaneous", 
+    "Pasta", 
+    "Seafood", 
+    "Side", 
+    "Starter", 
+    "Vegan", 
+]
+
+const areas: string[] = [
+    "American",
+    "British",
+    "Canadian",
+    "Chinese",
+    "Croatian",
+    "Dutch",
+    "Egyptian",
+    "Filipino",
+    "French",
+    "Greek",
+    "Indian",
+    "Irish",
+    "Italian",
+    "Jamaican",
+    "Japanese",
+    "Kenyan",
+    "Malaysian",
+    "Mexican",
+    "Moroccan",
+    "Polish",
+    "Portuguese",
+    "Russian",
+    "Spanish",
+    "Thai",
+    "Tunisian",
+    "Turkish",
+    "Ukrainian",
+    "Uruguayan",
+    "Vietnamese"
+];
+
+export const initialState = {
     favourites: favourites,
+    categories: categories,
+    areas: areas
 }
 
-function reducer(state: any , action: any) {
+export function reducer(state: any , action: any) {
     switch (action.type) {
         case "Add":
             console.log("Adding to favourites", action.payload);
@@ -53,5 +101,7 @@ function reducer(state: any , action: any) {
     }
 }
 
-// Export initialState and reducer for use in context
-export { initialState, reducer }
+export default function MyReducer() {
+    const [state, dispatch] = React.useReducer(reducer, initialState);
+    return {state, dispatch};
+}

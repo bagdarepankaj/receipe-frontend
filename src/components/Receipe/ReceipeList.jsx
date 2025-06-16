@@ -16,7 +16,7 @@ function ReceipeList({ recipes }) {
   }
 
   return (
-    <Grid container className="receipe-component" spacing={2}>
+    <Grid container spacing={2}>
       {recipes.map( meal => (
         <Grid size={{ md: 6, sm: 12 }} key={meal.strMeal} onClick={() => navigate(`/receipe/${meal.idMeal}`)} >
           <Paper 

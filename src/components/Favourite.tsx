@@ -5,10 +5,10 @@ import { useContext } from "react";
 import { FavContext } from "../context/FavouritesContext";
 
 export default function Favourite() {
-    const { state, dispatch } = useContext(FavContext);
+    const { state } = useContext(FavContext);
 
     return (
-        <Box sx={{ p: 4, ml: 4, mr: 4 }}>
+        <Box sx={{ p: 2 }}>
             <Typography 
                 variant="h4" 
                 sx={{

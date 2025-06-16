@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Paper, Typography, List, ListItem, ListItemText, Divider, Box } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useParams } from 'react-router-dom';
-// import axios from 'axios';
 
 function Receipe() {
     const [recipes, setRecipes] = useState([]);
@@ -34,8 +33,7 @@ function Receipe() {
                 <Paper 
                     elevation={6} 
                     key={meal.strMeal} 
-                    className="receipe-component"
-                    sx={{ p: 4 }}
+                    sx={{ p: 4, m: 4 }}
                 >
                     <Typography 
                         variant="h4" 

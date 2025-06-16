@@ -10,7 +10,7 @@ function CreateRecipe() {
     const data = Object.fromEntries(formData);
     console.log(data);
   }
-
+// FormData
   return (
     <Container>
       <Paper elevation={6} sx={{p: 4, m: 4}}>
