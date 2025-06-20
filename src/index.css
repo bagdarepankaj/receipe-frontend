@@ -25,7 +25,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  background-image: url(pexels-photo-shef.jpeg);
+  background-image: url(/pexels-photo-shef.jpeg);
   background-attachment: fixed;
   background-size: cover;
   min-width: 320px;

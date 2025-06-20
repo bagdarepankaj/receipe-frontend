@@ -46,7 +46,6 @@ function Header() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -56,6 +55,7 @@ function Header() {
               color: 'inherit',
               textDecoration: 'none',
             }}
+            onClick={() => navigate('/')}
           >
             Receipe
           </Typography>
@@ -101,7 +101,6 @@ function Header() {
             variant="h5"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -112,6 +111,7 @@ function Header() {
               color: 'inherit',
               textDecoration: 'none',
             }}
+            onClick={() => navigate('/')}
           >
             Receipe
           </Typography>

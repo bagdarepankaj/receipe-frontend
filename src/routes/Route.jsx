@@ -1,8 +1,6 @@
 import App from '../App.jsx'
 import Home from '../components/Home.jsx'
 import Login from '../components/Login.jsx'
-import Counter from '../components/Counter.jsx'
-import StopWatch from '../components/StopWatch.jsx'
 import CreateRecipe from '../components/Receipe/CreateRecipe.jsx'
 import Receipe from '../components/Receipe/Receipe.jsx'
 import Favourite from '../components/Favourite.tsx'
@@ -14,14 +12,6 @@ const router = createBrowserRouter([
     {
       path: '/login',
       element: <Login />
-    },
-    {
-      path: '/watch',
-      element: <StopWatch />
-    },
-    {
-      path: '/counter',
-      element: <Counter />
     },
     {
       path: '/random',
