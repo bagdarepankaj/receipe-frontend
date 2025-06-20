@@ -21,39 +21,17 @@ const itemData = [
     }
 ];
 const defaultCategories = [
-    {
-        "strCategory": "Breakfast"
-    },
-    {
-        "strCategory": "Chicken"
-    },
-    {
-        "strCategory": "Dessert"
-    },
-    {
-        "strCategory": "Goat"
-    },
-    {
-        "strCategory": "Miscellaneous"
-    },
-    {
-        "strCategory": "Pasta"
-    },
-    {
-        "strCategory": "Seafood"
-    },
-    {
-        "strCategory": "Side"
-    },
-    {
-        "strCategory": "Starter"
-    },
-    {
-        "strCategory": "Vegan"
-    },
-    {
-        "strCategory": "Vegetarian"
-    }
+    "Breakfast", 
+    "Vegetarian",
+    "Dessert", 
+    "Chicken", 
+    "Goat", 
+    "Miscellaneous", 
+    "Pasta", 
+    "Seafood", 
+    "Side", 
+    "Starter", 
+    "Vegan",
 ];
 
 export { itemData, defaultCategories }

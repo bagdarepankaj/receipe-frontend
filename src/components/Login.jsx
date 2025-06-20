@@ -5,7 +5,7 @@ export default function Login() {
 
     let [email, setEmail] = React.useState('');
     let [password, setPassword] = React.useState('');
-    let [login, setLogin] = React.useState(false)
+    let [setLogin] = React.useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();

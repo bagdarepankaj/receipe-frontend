@@ -48,7 +48,7 @@ const router = createBrowserRouter([
           element: <CategoryList/>
         },
         {
-          path: 'areas',
+          path: '/areas',
           element: <AreaList/>
         },
         {

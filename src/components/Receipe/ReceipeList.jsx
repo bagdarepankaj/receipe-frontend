@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useContext } from 'react';
 import { FavContext } from '../../context/FavouritesContext';
+import PropTypes from 'prop-types';
 
 function ReceipeList({ recipes }) {
 
@@ -16,9 +17,9 @@ function ReceipeList({ recipes }) {
   }
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={3}>
       {recipes.map( meal => (
-        <Grid size={{ md: 6, sm: 12 }} key={meal.strMeal} onClick={() => navigate(`/receipe/${meal.idMeal}`)} >
+        <Grid size={{ lg: 4, md: 6, sm: 12 }} key={meal.strMeal} onClick={() => navigate(`/receipe/${meal.idMeal}`)} >
           <Paper 
             elevation={6}
             sx={{ 

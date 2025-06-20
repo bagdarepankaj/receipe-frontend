@@ -2,6 +2,7 @@ import React from 'react'
 import { initialState } from '../../state/Reducer'
 import { Card, CardContent } from '@mui/material'
 import Grid from '@mui/material/Grid2' 
+import { Link } from 'react-router-dom'
 
 function CategoryList() {
   return (
@@ -10,11 +11,18 @@ function CategoryList() {
       <Grid container spacing={3}>
           {initialState.categories.map(category => (
             <Grid size={{xs: 12, sm: 6, md: 4, lg: 3}} key={category}>
-              <Card>
-                  <CardContent>
-                    <h3>{category}</h3>
-                  </CardContent>
-              </Card>
+              <Link to={`/home?category=${category}`}>
+                <Card sx={{
+                  '&:hover': {
+                    transform: 'scale(1.06)'
+                  },
+                  transition: 'transform 0.3s ease-in-out',
+                  }}>
+                    <CardContent>
+                      <h3>{category}</h3>
+                    </CardContent>
+                </Card>
+              </Link>
             </Grid>
           ))}
       </Grid>
