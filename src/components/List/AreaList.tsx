@@ -11,16 +11,18 @@ function AreaList() {
             <Grid container spacing={2}>
             {initialState.areas.map((area) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={area}>
-                    <Card sx={{
-                        '&:hover': {
-                            transform: 'scale(1.06)'
-                        },
-                        transition: 'transform 0.3s ease-in-out',
-                    }}>
-                        <CardContent>
-                            <h3>{area}</h3>
-                        </CardContent>
-                    </Card>
+                    <Link to={`/home?area=${area}`}>
+                        <Card sx={{
+                            '&:hover': {
+                                transform: 'scale(1.06)'
+                            },
+                            transition: 'transform 0.3s ease-in-out',
+                        }}>
+                            <CardContent>
+                                <h3>{area}</h3>
+                            </CardContent>
+                        </Card>
+                    </Link>
                 </Grid>
             ))}
             </Grid>
