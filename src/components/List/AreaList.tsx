@@ -16,6 +16,7 @@ function AreaList() {
                             '&:hover': {
                                 transform: 'scale(1.06)'
                             },
+                            opacity: 0.85,
                             transition: 'transform 0.3s ease-in-out',
                         }}>
                             <CardContent>
